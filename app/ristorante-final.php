@@ -245,9 +245,6 @@
     </aside>
 
   </div><!-- /.page-body -->
-
-  <!-- ══ TOAST ════════════════════════════════ -->
-  <div class="toast" id="js-toast" role="status" aria-live="polite"></div>
 </body>
 
 </html>
