@@ -25,8 +25,10 @@
 
     <!-- ── NAV ──────────────────────────────── -->
     <nav class="site-nav" aria-label="Primaire navigatie">
-      <a href="#menu" data-filter="all">Menu</a>
+      <a href="#Soepen" data-filter="dessert">Soepen</a>
       <a href="#antipasti" data-filter="antipasti">Antipasti</a>
+      <a href="#menu" data-filter="all">Pizza's</a>
+      <a href="#vleesgerechten" data-filter="antipasti">Vleesgerechten</a>
       <a href="#pasta" data-filter="pasta">Pasta</a>
       <a href="#dessert" data-filter="dessert">Dessert</a>
 
@@ -48,9 +50,7 @@
         <p class="section-label" id="menu-label">Vandaag op het menu</p>
 
         <div class="menu-grid" id="js-menu-grid">
-
-
-      
+          
           <menu-item></menu-item>
        
 
