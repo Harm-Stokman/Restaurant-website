@@ -1,3 +1,24 @@
+<?php
+
+include_once 'includes/pdo.php';
+
+// //  Define SQL statement
+// $sql = "SELECT * FROM gerechten";
+
+// //  Prepare SQL statement
+// $statement = $pdo->prepare($sql);
+
+// //  Exacute SQL statement
+// $statement->execute();
+
+// $gerechten = $statement->fetchAll();
+
+// echo "<pre>";
+// print_r($gerechten);
+// echo "</pre>"; 
+
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -14,6 +35,7 @@
 </head>
 
 <body>
+  
   <!-- ══ HEADER ══════════════════════════════ -->
   <header class="site-header">
     <div class="site-logo">Sera <span>Ristorante</span></div>
@@ -50,10 +72,28 @@
         <p class="section-label" id="menu-label">Vandaag op het menu</p>
 
         <div class="menu-grid" id="js-menu-grid">
-          
-          <menu-item></menu-item>
-       
 
+         
+
+          <?php 
+          
+         $sql = "SELECT * FROM gerechten";
+
+         $statement = $pdo->prepare($sql);
+
+         $statement->execute();
+
+         $gerechten = $statement->fetchAll();
+
+         foreach($gerechten as $gerecht) {
+
+         echo "<div>".$gerecht['gerechtnaam']. "</div>";
+
+         }
+
+          ?>
+
+       
           <!-- <article class="menu-card" data-category="antipasti" data-name="carpaccio di manzo"
             data-sub="rucola, parmigiano, kappertjes">
             <div class="menu-card__image" role="img" aria-label="Carpaccio di Manzo">
