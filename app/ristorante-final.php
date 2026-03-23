@@ -47,12 +47,12 @@ include_once 'includes/pdo.php';
 
     <!-- ── NAV ──────────────────────────────── -->
     <nav class="site-nav" aria-label="Primaire navigatie">
-      <a href="#Soepen" data-filter="dessert">Soepen</a>
-      <a href="#antipasti" data-filter="antipasti">Antipasti</a>
-      <a href="#menu" data-filter="all">Pizza's</a>
-      <a href="#vleesgerechten" data-filter="antipasti">Vleesgerechten</a>
-      <a href="#pasta" data-filter="pasta">Pasta</a>
-      <a href="#dessert" data-filter="dessert">Dessert</a>
+      <a>Pizza's</a>
+      <a>Antipasti</a>
+      <a>Pizza's</a>
+      <a>Vleesgerechten</a>
+      <a>Pasta</a>
+      <a>Dessert</a>
 
       <label class="nav-search" aria-label="Zoek een gerecht">
         <svg viewBox="0 0 24 24" aria-hidden="true">
