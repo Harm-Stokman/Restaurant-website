@@ -73,8 +73,6 @@ include_once 'includes/pdo.php';
 
         <div class="menu-grid" id="js-menu-grid">
 
-         
-
           <?php 
           
          $sql = "SELECT * FROM gerechten";
@@ -85,167 +83,23 @@ include_once 'includes/pdo.php';
 
          $gerechten = $statement->fetchAll();
 
-         foreach($gerechten as $gerecht) {
-
-         echo "<div>".$gerecht['gerechtnaam']. "</div>";
-
-         }
-
-          ?>
-
-       
-          <!-- <article class="menu-card" data-category="antipasti" data-name="carpaccio di manzo"
-            data-sub="rucola, parmigiano, kappertjes">
-            <div class="menu-card__image" role="img" aria-label="Carpaccio di Manzo">
-              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="320" height="200" fill="#BCB8B1" />
-                <line x1="0" y1="0" x2="320" y2="200" stroke="#463F3A" stroke-width="1" />
-                <line x1="320" y1="0" x2="0" y2="200" stroke="#463F3A" stroke-width="1" />
-              </svg>
+         foreach($gerechten as $gerecht) { ?>
+           <article class="menu-card">
+            <div class="menu-card__image" role="img" aria-label="Bruschetta al Pomodoro">
             </div>
             <footer class="menu-card__footer">
               <div class="menu-card__info">
-                <h2 class="menu-card__name">Carpaccio di Manzo</h2>
-                <p class="menu-card__sub">Rucola, Parmigiano, kappertjes</p>
+                 <?php echo "<h2 class='menu-card__name'>" . $gerecht['gerechtnaam'] . "</h2>"; ?>
+                 <?php echo "<p class='menu-card__sub'>" . $gerecht['ingrediënten'] . "</p>"; ?>
               </div>
               <div class="menu-card__actions">
-                <span class="menu-card__price">€ 12,50</span>
-                <button class="menu-card__add" onclick="addToCart('Carpaccio di Manzo', 12.50)">+ Toevoegen</button>
+                <?php echo "<span class='menu-card__price'>" . $gerecht['prijs'] . "</span>"; ?>
+                 <!-- <button class="menu-card__add" onclick="addToCart('Bruschetta al Pomodoro', 7.50)">+ Toevoegen</button> -->
               </div>
-            </footer>
+            </footer> 
           </article>
-
-          ── Pasta ──
-          <article class="menu-card" data-category="pasta" data-name="tagliatelle al ragù"
-            data-sub="langzaam gegaard rundvlees">
-            <div class="menu-card__image" role="img" aria-label="Tagliatelle al Ragù">
-              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="320" height="200" fill="#BCB8B1" />
-                <line x1="0" y1="0" x2="320" y2="200" stroke="#463F3A" stroke-width="1" />
-                <line x1="320" y1="0" x2="0" y2="200" stroke="#463F3A" stroke-width="1" />
-              </svg>
-            </div>
-            <footer class="menu-card__footer">
-              <div class="menu-card__info">
-                <h2 class="menu-card__name">Tagliatelle al Ragù</h2>
-                <p class="menu-card__sub">Langzaam gegaard rundvlees</p>
-              </div>
-              <div class="menu-card__actions">
-                <span class="menu-card__price">€ 17,50</span>
-                <button class="menu-card__add" onclick="addToCart('Tagliatelle al Ragù', 17.50)">+ Toevoegen</button>
-              </div>
-            </footer>
-          </article>
-
-          <article class="menu-card" data-category="pasta" data-name="risotto ai funghi"
-            data-sub="wilde paddenstoelen, parmigiano">
-            <div class="menu-card__image" role="img" aria-label="Risotto ai Funghi">
-              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="320" height="200" fill="#BCB8B1" />
-                <line x1="0" y1="0" x2="320" y2="200" stroke="#463F3A" stroke-width="1" />
-                <line x1="320" y1="0" x2="0" y2="200" stroke="#463F3A" stroke-width="1" />
-              </svg>
-            </div>
-            <footer class="menu-card__footer">
-              <div class="menu-card__info">
-                <h2 class="menu-card__name">Risotto ai Funghi</h2>
-                <p class="menu-card__sub">Wilde paddenstoelen, Parmigiano</p>
-              </div>
-              <div class="menu-card__actions">
-                <span class="menu-card__price">€ 16,00</span>
-                <button class="menu-card__add" onclick="addToCart('Risotto ai Funghi', 16.00)">+ Toevoegen</button>
-              </div>
-            </footer>
-          </article>
-
-          <article class="menu-card" data-category="pasta" data-name="spaghetti alle vongole"
-            data-sub="mosselen, witte wijn, peterselie">
-            <div class="menu-card__image" role="img" aria-label="Spaghetti alle Vongole">
-              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="320" height="200" fill="#BCB8B1" />
-                <line x1="0" y1="0" x2="320" y2="200" stroke="#463F3A" stroke-width="1" />
-                <line x1="320" y1="0" x2="0" y2="200" stroke="#463F3A" stroke-width="1" />
-              </svg>
-            </div>
-            <footer class="menu-card__footer">
-              <div class="menu-card__info">
-                <h2 class="menu-card__name">Spaghetti alle Vongole</h2>
-                <p class="menu-card__sub">Mosselen, witte wijn, peterselie</p>
-              </div>
-              <div class="menu-card__actions">
-                <span class="menu-card__price">€ 18,50</span>
-                <button class="menu-card__add" onclick="addToCart('Spaghetti alle Vongole', 18.50)">+ Toevoegen</button>
-              </div>
-            </footer>
-          </article>
-
-          <article class="menu-card" data-category="pasta" data-name="branzino al forno"
-            data-sub="gegrilde zeebaars, citroen">
-            <div class="menu-card__image" role="img" aria-label="Branzino al Forno">
-              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="320" height="200" fill="#BCB8B1" />
-                <line x1="0" y1="0" x2="320" y2="200" stroke="#463F3A" stroke-width="1" />
-                <line x1="320" y1="0" x2="0" y2="200" stroke="#463F3A" stroke-width="1" />
-              </svg>
-            </div>
-            <footer class="menu-card__footer">
-              <div class="menu-card__info">
-                <h2 class="menu-card__name">Branzino al Forno</h2>
-                <p class="menu-card__sub">Gegrilde zeebaars, citroen</p>
-              </div>
-              <div class="menu-card__actions">
-                <span class="menu-card__price">€ 22,00</span>
-                <button class="menu-card__add" onclick="addToCart('Branzino al Forno', 22.00)">+ Toevoegen</button>
-              </div>
-            </footer>
-          </article>
-
-          ── Dessert ──
-          <article class="menu-card" data-category="dessert" data-name="panna cotta al limone"
-            data-sub="vanille, siciliaanse citroen">
-            <div class="menu-card__image" role="img" aria-label="Panna Cotta al Limone">
-              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="320" height="200" fill="#BCB8B1" />
-                <line x1="0" y1="0" x2="320" y2="200" stroke="#463F3A" stroke-width="1" />
-                <line x1="320" y1="0" x2="0" y2="200" stroke="#463F3A" stroke-width="1" />
-              </svg>
-            </div>
-            <footer class="menu-card__footer">
-              <div class="menu-card__info">
-                <h2 class="menu-card__name">Panna Cotta al Limone</h2>
-                <p class="menu-card__sub">Vanille, Siciliaanse citroen</p>
-              </div>
-              <div class="menu-card__actions">
-                <span class="menu-card__price">€ 8,50</span>
-                <button class="menu-card__add" onclick="addToCart('Panna Cotta al Limone', 8.50)">+ Toevoegen</button>
-              </div>
-            </footer>
-          </article>
-
-          <article class="menu-card" data-category="dessert" data-name="tiramisù della casa"
-            data-sub="mascarpone, espresso, amaretto">
-            <div class="menu-card__image" role="img" aria-label="Tiramisù della Casa">
-              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="320" height="200" fill="#BCB8B1" />
-                <line x1="0" y1="0" x2="320" y2="200" stroke="#463F3A" stroke-width="1" />
-                <line x1="320" y1="0" x2="0" y2="200" stroke="#463F3A" stroke-width="1" />
-              </svg>
-            </div>
-            <footer class="menu-card__footer">
-              <div class="menu-card__info">
-                <h2 class="menu-card__name">Tiramisù della Casa</h2>
-                <p class="menu-card__sub">Mascarpone, espresso, amaretto</p>
-              </div>
-              <div class="menu-card__actions">
-                <span class="menu-card__price">€ 9,00</span>
-                <button class="menu-card__add" onclick="addToCart('Tiramisù della Casa', 9.00)">+ Toevoegen</button>
-              </div>
-            </footer>
-          </article>
-
-          <!-- No results message (inside grid) -->
+        <?php } ?>
           <p class="no-results" id="js-no-results">Geen gerechten gevonden.</p>
-
         </div><!-- /.menu-grid -->
       </section>
 
@@ -289,5 +143,4 @@ include_once 'includes/pdo.php';
   <!-- ══ TOAST ════════════════════════════════ -->
   <div class="toast" id="js-toast" role="status" aria-live="polite"></div>
 </body>
-
 </html>

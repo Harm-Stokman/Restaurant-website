@@ -26,4 +26,6 @@ try {
 //  Stop (die)
     die("Sorry. database probleem");
 }
+
+
 ?>
