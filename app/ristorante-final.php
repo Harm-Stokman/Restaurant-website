@@ -85,7 +85,7 @@ include_once 'includes/pdo.php';
 
          foreach($gerechten as $gerecht) { ?>
            <article class="menu-card">
-            <div class="menu-card__image" role="img" aria-label="Bruschetta al Pomodoro">
+            <div class="menu-card__image" role="img">
             </div>
             <footer class="menu-card__footer">
               <div class="menu-card__info">
