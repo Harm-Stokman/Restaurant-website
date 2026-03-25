@@ -26,10 +26,10 @@ include_once 'includes/pdo.php';
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sera Ristorante</title>
+  <link rel="stylesheet" href="css/style.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css">
   <script src="scripts/script.js"></script>
   <script src="scripts/defer.js"></script>
 </head>
@@ -94,7 +94,7 @@ include_once 'includes/pdo.php';
               </div>
               <div class="menu-card__actions">
                 <?php echo "<span class='menu-card__price'>" . $gerecht['prijs'] . "</span>"; ?>
-                 <!-- <button class="menu-card__add" onclick="addToCart('Bruschetta al Pomodoro', 7.50)">+ Toevoegen</button> -->
+                 <button class="menu-card__add" onclick="addToCart('Bruschetta al Pomodoro', 7.50)">+ Toevoegen</button>
               </div>
             </footer> 
           </article>

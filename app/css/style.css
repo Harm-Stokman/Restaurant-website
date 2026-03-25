@@ -32,7 +32,7 @@
       display: flex;
       justify-content: space-between;
       padding: 1.2rem 2rem;
-      border-bottom: 1px solid var(--mid);
+      border-bottom: 20px solid var(--mid);
       flex-shrink: 0;
     }
 
@@ -45,15 +45,7 @@
 
     .site-logo span { font-weight: 300; color: var(--mid); }
 
-    .site-header button {
-      background: var(--light);
-      color: rgb(0, 0, 0);
-      border: 1px solid var(--mid);
-      padding: 0.2rem 1.0rem;
-      font-size: 1.0rem;
-      font-family: var(--font);
-      font-weight: 600;
-    }
+
 
     /* ─────────────────────────────────────────
        PAGE BODY  (fills remaining height)
