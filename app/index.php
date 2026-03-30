@@ -18,7 +18,6 @@ include_once 'includes/pdo.php';
 // echo "</pre>"; 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -39,7 +38,7 @@ include_once 'includes/pdo.php';
   <!-- ══ HEADER ══════════════════════════════ -->
   <header class="site-header">
     <div class="site-logo">Sera <span>Ristorante</span></div>
-    <button>Login</button>
+    <a href="login.php" ><site-button>Login</site-button></a>
   </header>
 
   <!-- ══ PAGE BODY ════════════════════════════ -->
@@ -47,21 +46,19 @@ include_once 'includes/pdo.php';
 
     <!-- ── NAV ──────────────────────────────── -->
     <nav class="site-nav" aria-label="Primaire navigatie">
-      <a>Pizza's</a>
-      <a>Antipasti</a>
-      <a>Pizza's</a>
-      <a>Vleesgerechten</a>
-      <a>Pasta</a>
-      <a>Dessert</a>
-
-      <label class="nav-search" aria-label="Zoek een gerecht">
+      <!-- <label class="nav-search" aria-label="Zoek een gerecht">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="11" cy="11" r="7" />
           <line x1="16.5" y1="16.5" x2="22" y2="22" />
         </svg>
         <input type="search" id="js-search" placeholder="Zoek een gerecht…" autocomplete="off"
           oninput="filterMenu(this.value)" />
-      </label>
+      </label> -->
+
+      <form name="zoekbalk" action="index.php" method="get">
+        <input class="nav-search" type="search" placeholder="Zoek een gerecht...">
+        <input class="nav-search" type="submit">
+      </form>
     </nav>
 
     <!-- ── MAIN ─────────────────────────────── -->
@@ -74,15 +71,15 @@ include_once 'includes/pdo.php';
         <div class="menu-grid" id="js-menu-grid">
 
           <?php 
-          
-         $sql = "SELECT * FROM gerechten";
 
-         $statement = $pdo->prepare($sql);
+ $sql = "SELECT * FROM gerechten";
 
-         $statement->execute();
+    $statement = $pdo->prepare($sql);
 
-         $gerechten = $statement->fetchAll();
+    $statement->execute();
 
+    $gerechten = $statement->fetchAll();
+  
          foreach($gerechten as $gerecht) { ?>
            <article class="menu-card">
             <div class="menu-card__image" role="img">
@@ -94,7 +91,7 @@ include_once 'includes/pdo.php';
               </div>
               <div class="menu-card__actions">
                 <?php echo "<span class='menu-card__price'>" . $gerecht['prijs'] . "</span>"; ?>
-                 <button class="menu-card__add" onclick="addToCart('Bruschetta al Pomodoro', 7.50)">+ Toevoegen</button>
+                 <site-button onclick="addToCart('Bruschetta al Pomodoro', 7.50)">+ Toevoegen</site-button>
               </div>
             </footer> 
           </article>

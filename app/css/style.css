@@ -43,9 +43,30 @@
       text-transform: uppercase;
     }
 
+    .site-header a {
+      text-decoration: none;
+    }
+
     .site-logo span { font-weight: 300; color: var(--mid); }
 
+    site-button {
+      font-family: var(--font);
+      font-size: 0.80rem;
+      font-weight: 600;
+      border: 1px solid var(--mid);
+      background: transparent;
+      color: var(--dark);
+      cursor: pointer;
+      transition: background .18s, color .18s;
+      padding: .36rem .85rem;
+      letter-spacing: 0.08rem;
+    }
 
+    site-button:hover {
+       background: var(--dark); 
+       color: var(--light);
+    }
+  
 
     /* ─────────────────────────────────────────
        PAGE BODY  (fills remaining height)
@@ -59,7 +80,6 @@
     }
 
     /* grid areas */
-    .site-nav  { grid-column: 1; grid-row: 1; }
     .site-main { grid-column: 1; grid-row: 2; }
     .site-cart { grid-column: 2; grid-row: 1 / span 2; }
 
@@ -68,8 +88,8 @@
     ───────────────────────────────────────── */
     .site-nav {
       display: flex;
-      align-items: center;
-      gap: 2rem;
+      align-items: center;  
+      justify-content: center;
       padding: .85rem 2rem;
       border-bottom: 1px solid var(--mid);
       border-right: 1px solid var(--mid);
@@ -92,7 +112,6 @@
 
     /* Search */
     .nav-search {
-      margin-left: auto;
       display: flex;
       align-items: center;
       gap: .45rem;
@@ -122,6 +141,11 @@
     }
 
     .nav-search input::placeholder { color: var(--mid); font-weight: 300; }
+
+    form {
+      display: flex;
+      justify-self:flex-start;
+    }
 
     /* ─────────────────────────────────────────
        MAIN  (scrollable)
@@ -248,22 +272,6 @@
       font-size: .8rem;
       font-weight: 500;
     }
-
-    .menu-card__add {
-      padding: .36rem .85rem;
-      font-family: var(--font);
-      font-size: .64rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      border: 1px solid var(--dark);
-      background: transparent;
-      color: var(--dark);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background .18s, color .18s;
-    }
-
-    .menu-card__add:hover { background: var(--dark); color: var(--light); }
 
     /* No results */
     .no-results {

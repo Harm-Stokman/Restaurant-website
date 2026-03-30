@@ -5,7 +5,7 @@ class siteButton extends HTMLElement {
 
         const shadow = this.attachShadow({ mode: 'open' });
 
-        shadow.innerHTML = 
+        shadow.innerHTML = <button> </button>
     }
 }
 
