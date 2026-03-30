@@ -1,6 +1,8 @@
 <?php
 
+
 include_once 'includes/pdo.php';
+include_once 'includes/header.php';
 
 // //  Define SQL statement
 // $sql = "SELECT * FROM gerechten";
@@ -34,30 +36,14 @@ include_once 'includes/pdo.php';
 </head>
 
 <body>
-  
-  <!-- ══ HEADER ══════════════════════════════ -->
-  <header class="site-header">
-    <div class="site-logo">Sera <span>Ristorante</span></div>
-    <a href="login.php" ><site-button>Login</site-button></a>
-  </header>
-
   <!-- ══ PAGE BODY ════════════════════════════ -->
   <div class="page-body">
 
     <!-- ── NAV ──────────────────────────────── -->
     <nav class="site-nav" aria-label="Primaire navigatie">
-      <!-- <label class="nav-search" aria-label="Zoek een gerecht">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="11" cy="11" r="7" />
-          <line x1="16.5" y1="16.5" x2="22" y2="22" />
-        </svg>
-        <input type="search" id="js-search" placeholder="Zoek een gerecht…" autocomplete="off"
-          oninput="filterMenu(this.value)" />
-      </label> -->
-
       <form name="zoekbalk" action="index.php" method="get">
-        <input class="nav-search" type="search" placeholder="Zoek een gerecht...">
-        <input class="nav-search" type="submit">
+        <input class="input-field" type="search" placeholder="Zoek een gerecht...">
+        <input class="nav-search" type="submit" value="Zoeken">  
       </form>
     </nav>
 
