@@ -43,7 +43,7 @@ include_once 'includes/header.php';
     <nav class="site-nav" aria-label="Primaire navigatie">
       <form name="zoekbalk" action="index.php" method="get">
         <input class="input-field" type="search" placeholder="Zoek een gerecht...">
-        <input class="nav-search" type="submit" value="Zoeken">  
+        <input class="nav-search" type="submit" value="Zoeken">
       </form>
     </nav>
 
@@ -56,32 +56,32 @@ include_once 'includes/header.php';
 
         <div class="menu-grid" id="js-menu-grid">
 
-          <?php 
+          <?php
 
- $sql = "SELECT * FROM gerechten";
+          $sql = "SELECT * FROM gerechten";
 
-    $statement = $pdo->prepare($sql);
+          $statement = $pdo->prepare($sql);
 
-    $statement->execute();
+          $statement->execute();
 
-    $gerechten = $statement->fetchAll();
-  
-         foreach($gerechten as $gerecht) { ?>
-           <article class="menu-card">
-            <div class="menu-card__image" role="img">
-            </div>
-            <footer class="menu-card__footer">
-              <div class="menu-card__info">
-                 <?php echo "<h2 class='menu-card__name'>" . $gerecht['gerechtnaam'] . "</h2>"; ?>
-                 <?php echo "<p class='menu-card__sub'>" . $gerecht['ingrediënten'] . "</p>"; ?>
+          $gerechten = $statement->fetchAll();
+
+          foreach ($gerechten as $gerecht) { ?>
+            <article class="menu-card">
+              <div class="menu-card__image" role="img">
               </div>
-              <div class="menu-card__actions">
-                <?php echo "<span class='menu-card__price'>" . $gerecht['prijs'] . "</span>"; ?>
-                 <site-button onclick="addToCart('Bruschetta al Pomodoro', 7.50)">+ Toevoegen</site-button>
-              </div>
-            </footer> 
-          </article>
-        <?php } ?>
+              <footer class="menu-card__footer">
+                <div class="menu-card__info">
+                  <?php echo "<h2 class='menu-card__name'>" . $gerecht['gerechtnaam'] . "</h2>"; ?>
+                  <?php echo "<p class='menu-card__sub'>" . $gerecht['ingrediënten'] . "</p>"; ?>
+                </div>
+                <div class="menu-card__actions">
+                  <?php echo "<span class='menu-card__price'>" . $gerecht['prijs'] . "</span>"; ?>
+                  <site-button onclick="addToCart('Bruschetta al Pomodoro', 7.50)">+ Toevoegen</site-button>
+                </div>
+              </footer>
+            </article>
+          <?php } ?>
           <p class="no-results" id="js-no-results">Geen gerechten gevonden.</p>
         </div><!-- /.menu-grid -->
       </section>
@@ -126,4 +126,5 @@ include_once 'includes/header.php';
   <!-- ══ TOAST ════════════════════════════════ -->
   <div class="toast" id="js-toast" role="status" aria-live="polite"></div>
 </body>
+
 </html>

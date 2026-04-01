@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="css/style.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
-    rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+        rel="stylesheet" />
     <script src="scripts/defer.js"></script>
 </head>
+
 <body>
     <header class="site-header">
-    <div class="site-logo">Sera <span>Ristorante</span></div>
-    <a href="login.php" ><site-button>Login</site-button></a>
-  </header>
+        <div class="site-logo">Sera <span>Ristorante</span></div>
+        <a href="login.php"><site-button>Login</site-button></a>
+    </header>
 </body>
-</html>
 
+</html>
