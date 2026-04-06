@@ -17,7 +17,7 @@
         <div> 
             <?php
             if (isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in" ] == "true") {
-                echo "<a href='includes/logout.php'> <site-button>Uitloggen</site-button> </a>";
+                echo "<a href='logout.php'> <site-button>Uitloggen</site-button> </a>";
             } else {
                echo "<a href='login.php'> <site-button>Login</site-button> </a>";
             }

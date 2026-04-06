@@ -8,5 +8,5 @@ session_regenerate_id();
 
 session_destroy();
 
-header('Location: app/login.php'); 
+header('Location: login.php'); 
 ?>

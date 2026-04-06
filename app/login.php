@@ -16,7 +16,8 @@ if (isset($_POST['submit'])) {
         $_SESSION['is_logged_in'] = true;
         $_SESSION['usernameLogged'] = $_POST['username'];
         header('Location: index.php');
-      }
+      } 
+      echo "<div class='login-box'> Verkeerde inloggegevens, probeer het opnieuw. </div>";
     }
   }
 }
@@ -35,7 +36,7 @@ if (isset($_POST['submit'])) {
 <body class="login-body">
   <div class="login-box">
     <form class="login-form" action="login.php" method="post">
-      <div class="site-logo">Sera <span>Ristorante</span></div>
+      <div class="site-logo">Sera <span>Ristorante</span></div>  
       <input class="input-field" type="text" name="username" placeholder="Gebruikersnaam">
       <input class="input-field" type="password" name="password" placeholder="Wachtwoord">
       <div class="button-field">

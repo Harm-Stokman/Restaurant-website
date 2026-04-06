@@ -3,7 +3,7 @@ session_start();
 
     if (isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in"] == "true") {
     } else  {
-        header("login.php");
+        header("Location: login.php");
     }
 ?>
 
@@ -19,6 +19,8 @@ session_start();
 </head>
 
 <body>
+
+
 
 </body>
 

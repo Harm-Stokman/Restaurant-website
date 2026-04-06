@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in" ] == "true") {
 // echo "logged in as:" .$_SESSION['usernameLogged']."";
 } else {
-  echo "you are not logged in";
+  // echo "you are not logged in";
 }
 
 include_once 'includes/pdo.php';
