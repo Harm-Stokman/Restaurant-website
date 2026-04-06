@@ -1,24 +1,14 @@
 <?php
 
+session_start();
+if (isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in" ] == "true") {
+// echo "logged in as:" .$_SESSION['usernameLogged']."";
+} else {
+  echo "you are not logged in";
+}
 
 include_once 'includes/pdo.php';
 include_once 'includes/header.php';
-
-// //  Define SQL statement
-// $sql = "SELECT * FROM gerechten";
-
-// //  Prepare SQL statement
-// $statement = $pdo->prepare($sql);
-
-// //  Exacute SQL statement
-// $statement->execute();
-
-// $gerechten = $statement->fetchAll();
-
-// echo "<pre>";
-// print_r($gerechten);
-// echo "</pre>"; 
-
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -43,7 +33,7 @@ include_once 'includes/header.php';
     <nav class="site-nav" aria-label="Primaire navigatie">
       <form name="zoekbalk" action="index.php" method="get">
         <input class="input-field" type="search" placeholder="Zoek een gerecht...">
-        <input class="nav-search" type="submit" value="Zoeken">
+        <input class="nav-search" type="submit" name="zoeken" value="Zoeken">
       </form>
     </nav>
 
@@ -65,6 +55,7 @@ include_once 'includes/header.php';
           $statement->execute();
 
           $gerechten = $statement->fetchAll();
+
 
           foreach ($gerechten as $gerecht) { ?>
             <article class="menu-card">
