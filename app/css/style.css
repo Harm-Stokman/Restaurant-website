@@ -76,6 +76,7 @@ site-button {
   transition: background .18s, color .18s;
   padding: .36rem .85rem;
   letter-spacing: 0.08rem;
+  max-height: 30px;
 }
 
 site-button:hover {
@@ -90,7 +91,7 @@ site-button:hover {
 .page-body {
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   min-height: 0;
   /* allow children to scroll */
@@ -187,6 +188,52 @@ form {
   display: flex;
   justify-self: flex-start;
 }
+
+
+.admin-page {
+  align-self: center;
+  display: grid;
+  gap: 30px;
+}
+
+.admin-block {
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  border-bottom: 2px solid var(--dark);
+}
+
+.admin-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.admin-actions a {
+  align-content: center;
+}
+
+.admin-form {
+  gap: 10px;
+  align-self: center;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .admin-other {
+}
+
+.admin-blocks {
+  
+} */
 
 /* ─────────────────────────────────────────
        MAIN  (scrollable)

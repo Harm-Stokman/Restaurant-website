@@ -10,13 +10,13 @@
         rel="stylesheet" />
     <script src="scripts/defer.js"></script>
 </head>
-
 <body>
     <header class="site-header">
         <div class="site-logo">Sera <span>Ristorante</span></div>
         <div> 
             <?php
             if (isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in" ] == "true") {
+                echo "<span> Welkom " .$_SESSION['usernameLogged']. "</span>";
                 echo "<a href='logout.php'> <site-button>Uitloggen</site-button> </a>";
             } else {
                echo "<a href='login.php'> <site-button>Login</site-button> </a>";
@@ -26,5 +26,4 @@
         </div>
     </header>
 </body>
-
 </html>
