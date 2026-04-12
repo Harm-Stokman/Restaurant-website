@@ -8,7 +8,6 @@ if (isset($_POST['submit'])) {
 
   $query = $pdo->query("SELECT * FROM Gebruikers")->fetchAll();
 
-
   foreach ($query as $row) {
 
     if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -22,17 +21,14 @@ if (isset($_POST['submit'])) {
   }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body class="login-body">
   <div class="login-box">
     <form class="login-form" action="login.php" method="post">

@@ -9,25 +9,20 @@ if (isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in"] == "true") {
     header("Location: login.php");
 }
 
-if (isset($_GET['name'])) {
+if (isset($_GET['id'])) {
 
-  $name = $_GET['name'];  
+  $name = $_GET['id'];  
 
 
   $query = "DELETE FROM gerechten
-  WHERE gerechtnaam = ?";
+  WHERE id = ?";
 
   $deleteStatement = $pdo->prepare($query);
   $deleteStatement->bindParam(1, $name);
   $deleteStatement->execute();
 }
 
-
-
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,14 +64,13 @@ if (isset($_GET['name'])) {
                         <?php echo "<span>" . $gerecht['prijs'] . "</span>"; ?>
                     </div>
                     <div class="admin-actions">
-                        <a href="adminedit.php? name=<?php echo $gerecht['gerechtnaam'] ?>"><site-button>Bewerken</site-button></a>
-                        <a href="admin.php? name=<?php echo $gerecht['gerechtnaam'] ?>"> <site-button>Verwijderen</site-button></a>
+                        <a href="adminedit.php? id=<?php echo $gerecht['id'] ?>"><site-button>Bewerken</site-button></a>
+                        <a href="admin.php? id=<?php echo $gerecht['id'] ?>"> <site-button>Verwijderen</site-button></a>
                     </div>
                 </div>
             <?php }
             ?>
         </div>
-
     </div>
 </body>
 

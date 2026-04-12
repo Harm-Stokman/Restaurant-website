@@ -1,14 +1,13 @@
 <?php
-
 session_start();
 if (isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in" ] == "true") {
 // echo "logged in as:" .$_SESSION['usernameLogged']."";
 } else {
   // echo "you are not logged in";
 }
-
 include_once 'includes/pdo.php';
 include_once 'includes/header.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -32,7 +31,7 @@ include_once 'includes/header.php';
     <!-- ── NAV ──────────────────────────────── -->
     <nav class="site-nav" aria-label="Primaire navigatie">
       <form name="zoekbalk" action="index.php" method="get">
-        <input class="input-field" type="search" placeholder="Zoek een gerecht...">
+        <input class="input-field" type="search" name="zoekveld" placeholder="Zoek een gerecht...">
         <input class="nav-search" type="submit" name="zoeken" value="Zoeken">
       </form>
     </nav>
@@ -48,13 +47,19 @@ include_once 'includes/header.php';
 
           <?php
 
+          if (!isset($_GET['zoeken']) OR ($_GET['zoekveld'] == '')) {
+            
           $sql = "SELECT * FROM gerechten";
-
-          $statement = $pdo->prepare($sql);
-
-          $statement->execute();
-
-          $gerechten = $statement->fetchAll();
+          $searchStatement = $pdo->prepare($sql);
+          $searchStatement->execute();
+          } else {
+          $searchsql = "SELECT * FROM gerechten 
+          WHERE gerechtnaam LIKE ?";
+          $searchStatement = $pdo->prepare($searchsql);
+          $searchStatement->execute([ '%' .$_GET['zoekveld']. '%' ]
+            );
+          }
+           $gerechten = $searchStatement->fetchAll();  
 
           foreach ($gerechten as $gerecht) { ?>
             <article class="menu-card">

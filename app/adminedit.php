@@ -8,37 +8,8 @@ if (isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in"] == "true") {
 } else {
     header("Location: login.php");
 }
-if (isset($_GET['name'])) {
-    $name = $_GET['name'];
-
-    $search = "SELECT * FROM gerechten
-WHERE gerechtnaam = '$name'";
-    $statementEdit = $pdo->prepare($search);
-    $statementEdit->execute();
-
-    if ($statementEdit->rowCount() > 0) {
-        $row = $statementEdit->fetch(PDO::FETCH_ASSOC);
-
-        $naamGerecht = $row["gerechtnaam"];
-        $ingrediënten = $row["ingrediënten"];
-        $prijs = $row["prijs"];
-    }
-
-    if (isset($_POST["opslaan"])) {
-
-    $save = "UPDATE gerechten
-    SET gerechtnaam = $naamGerecht, ingrediënten = $ingrediënten, prijs = $prijs
-    WHERE gerechtnaam = $naam";
-    }
-    
-}
-
-
-
-
-
+ 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,17 +24,48 @@ WHERE gerechtnaam = '$name'";
     <script src="scripts/defer.js"></script>
 </head>
 
-<body>
+<?php 
+if (isset($_GET["id"])) {
+$nameStatement = $pdo->prepare("SELECT * FROM gerechten
+WHERE id = ?"); 
+$nameStatement->bindParam(1, $_GET["id"]);
+$nameStatement->execute();
+} else if (isset($_POST["opslaan"])) {
+$nameStatement = $pdo->prepare("SELECT * FROM gerechten
+WHERE gerechtnaam = ?"); 
+$nameStatement->bindParam(1, $_POST["editgerechtnaam"]);
+$nameStatement->execute();
+}
+$result= $nameStatement->fetch();
+$id = $result['id'];
 
+if (isset($_POST["opslaan"])) {
+
+$naam = $_POST['editgerechtnaam'];
+$ingrediënt = $_POST['editingrediënten'];
+$prijs = $_POST['editprijs'];
+
+$saveStatement = $pdo->prepare("UPDATE gerechten 
+SET gerechtnaam =  ?, ingrediënten = ?, prijs = ?
+WHERE id =  $id");
+$saveStatement->bindParam(1, $naam);
+$saveStatement->bindParam(2, $ingrediënt);
+$saveStatement->bindParam(3, $prijs);
+$saveStatement->execute();
+
+echo "Gerecht toegevoegd, ga terug om de aanpassingen te zien.";
+
+}
+
+?>
+<body>
     <form class="admin-form" action="adminedit.php" method="post">
         <label>Vul hier het gerechtnaam in.</label>
-        <input class="input-field" type="text" name="gerechtnaam" placeholder="Gerechtnaam"
-            value="<?php echo $row['gerechtnaam'] ?> ">
+        <input class="input-field" type="text" name="editgerechtnaam" placeholder="Gerechtnaam" value="<?php echo $result['gerechtnaam'] ?>">
         <label>Vul hier de ingrediënten in.</label>
-        <input class="input-field" type="text" name="ingrediënten" placeholder="Ingrediënten"
-            value="<?php echo $row['ingrediënten'] ?> ">
+        <input class="input-field" type="text" name="editingrediënten" placeholder="Ingrediënten" value="<?php echo $result['ingrediënten'] ?>">
         <label>Vul hier de prijs van het gerecht in.</label>
-        <input class="input-field" type="text" name="prijs" placeholder="Prijs" value="<?php echo $row['prijs'] ?> ">
+        <input class="input-field" type="text" name="editprijs" placeholder="Prijs" value="<?php echo $result['prijs'] ?>">
         <div>
             <a href="admin.php"><site-button>Terug</site-button></a>
             <input type="submit" name="opslaan" value="Opslaan">
