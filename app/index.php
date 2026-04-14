@@ -20,8 +20,8 @@ include_once 'includes/header.php';
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
     rel="stylesheet" />
-  <script src="scripts/script.js"></script>
-  <script src="scripts/defer.js"></script>
+  <script src="scripts\script.js" defer></script>
+  <script src="scripts\defer.js" defer></script>
 </head>
 
 <body>
@@ -62,28 +62,16 @@ include_once 'includes/header.php';
            $gerechten = $searchStatement->fetchAll();  
 
           foreach ($gerechten as $gerecht) { ?>
-            <article class="menu-card">
-              <div class="menu-card__image" role="img">
-              </div>
-              <footer class="menu-card__footer">
-                <div class="menu-card__info">
-                  <?php echo "<h2 class='menu-card__name'>" . $gerecht['gerechtnaam'] . "</h2>"; ?>
-                  <?php echo "<p class='menu-card__sub'>" . $gerecht['ingrediënten'] . "</p>"; ?>
-                </div>
-                <div class="menu-card__actions">
-                  <?php echo "<span class='menu-card__price'>" . $gerecht['prijs'] . "</span>"; ?>
-                </div>
-              </footer>
-            </article>
-          <?php } ?>
-        </div><!-- /.menu-grid -->
+              <menu-item
+        Gerechtnaam="<?php echo $gerecht['gerechtnaam']; ?>"
+        Prijs="<?php echo $gerecht['prijs']; ?>"
+        Ingrediënten="<?php echo $gerecht['ingrediënten'] ?>" 
+        ></menu-item>
+          <?php } ?> 
+        </div>
       </section>
 
     </main><!-- /.site-main -->
-
-    <!-- ── CART ──────────────────────────────── -->
-    
-
   </div><!-- /.page-body -->
 
   <!-- ══ TOAST ════════════════════════════════ -->

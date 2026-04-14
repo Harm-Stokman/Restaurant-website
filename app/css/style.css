@@ -84,7 +84,6 @@ site-button:hover {
   color: var(--light);
 }
 
-
 /* ─────────────────────────────────────────
        PAGE BODY  (fills remaining height)
     ───────────────────────────────────────── */
@@ -228,12 +227,6 @@ form {
   flex-direction: column;
 }
 
-/* .admin-other {
-}
-
-.admin-blocks {
-  
-} */
 
 /* ─────────────────────────────────────────
        MAIN  (scrollable)
