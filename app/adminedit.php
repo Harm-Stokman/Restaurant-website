@@ -61,7 +61,7 @@ header("Location: admin.php");
 
 <body>
     <form class="admin-form" action="adminedit.php" method="post">
-        <input class="input-field" type="hidden" name="id" placeholder="ID" value="<?php echo $result['id'] ?>">
+        <input class="input-field" type="hidden" name="id" value="<?php echo $result['id'] ?>">
         <label>Vul hier het gerechtnaam in.</label>
         <input class="input-field" type="text" name="editgerechtnaam" placeholder="Gerechtnaam" value="<?php echo $result['gerechtnaam'] ?>">
         <label>Vul hier de ingrediënten in.</label>
